@@ -1,23 +1,23 @@
-# Online TV Recorder / otrkey Dekode, Schnitt, Umwandeln in h264 für Playstation, iPhone, iPad, MacOS, Android
+# OTR - Online-TV-Recorder Tools
+## Decode, Cut, Convert otrkey files to h264 für Playstation, iPhone, iPad, MacOS, Android
 
 Docker Image mit allen Komponenten um otrkey Dateien von http://onlinetvrecorder.com zu bearbeiten.
 Ziel ist eine möglichst automatische Bearbeitung.
 
-Komponenten:
+Image containing everything to work with otrkey files from http://onlinetvrecorder.com.
+My target is a automatic workflow.
+
+Components:
 	
 * Easydekoder
-* multicut_light
+* multicut_light (customized)
 * ffmpeg
-
-Abhängigkeiten:
-
 * avidemux 2.5.6
 * Ubuntu 14.04
-* angepasstes multicut_light um avidemux ohne Nachfragen laufen zu lassen
 
 ## Usage
 
-### Batch - Dekodieren, Schneiden, Umwandeln in h264, Aufräumen
+### Batch - Decode, Cut, Convert to h264, Cleanup
 
 * Man benötigt Docker: https://www.docker.com/products/docker-toolbox#/resources (Dies ist die zZ des Schreibens stabile 1.11 Version, Bleeding Edge ist 1.12)
 * Man muss dem Programm einige Angaben mitgeben
