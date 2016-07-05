@@ -2,10 +2,10 @@
 ## Decode, Cut, Convert otrkey files to h264 für Playstation, iPhone, iPad, MacOS, Android
 
 Docker Image mit allen Komponenten um otrkey Dateien von http://onlinetvrecorder.com zu bearbeiten.
-Ziel ist eine möglichst automatische Bearbeitung.
+  Ziel ist eine möglichst automatische Bearbeitung.
 
 Image containing everything to work with otrkey files from http://onlinetvrecorder.com.
-My target is a automatic workflow.
+  My target is a automatic workflow.
 
 Components:
 	
@@ -15,76 +15,63 @@ Components:
 * avidemux 2.5.6
 * Ubuntu 14.04
 
-## Usage
+### Usage
 
-### Batch - Decode, Cut, Convert to h264, Cleanup
+#### Batch - Decode, Cut, Convert to h264, Cleanup
 
-* Man benötigt Docker: https://www.docker.com/products/docker-toolbox#/resources (Dies ist die zZ des Schreibens stabile 1.11 Version, Bleeding Edge ist 1.12)
-* Man muss dem Programm einige Angaben mitgeben
-  * email: Die E-Mail Adresse die man bei www.onlinetvrecorder.com zum Einloggen nutzt
-  * password: Das Passwort zum Einloggen bei www.onlinetvrecorder.com
-  * cutlistAtUrl: Die "Persönliche Server-URL" von http://cutlist.at (Nach Registrierung oben rechts im Menü)
-  * Das Verzeichnis in dem sich die .otrkey Dateien befinden (hier: _~/Downloads:_)
-* _docker run -e "email=bla@fasel.de" -e "password=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr_
+	docker run -e "email=bla@fasel.de" -e "password=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr
+
+* You need Docker: https://www.docker.com/products/docker-toolbox#/resources (Stable version atm: 1.11 Version, Bleeding Edge: 1.12)
+* You need to provide your otr credentials and directory
+  * __email__: E-Mail you use to login at onlinetvrecorder.com
+  * __password__: Password you use to login at onlinetvrecorder.com
+  * __cutlistAtUrl__: Your personal server-url / "Persönliche Server-URL" from http://cutlist.at (You need to register there)
+  * The folder where your otrkey files are (here: _~/Downloads_)
 
 
-### Manuell
+#### Manuell
 
-Man kann das Image auch manuell benutzen wenn man zB garnicht umwandeln möchte.
-Hierbei muss man nur den Ordner spezifizieren in dem man arbeiten möchte (hier _~/Downloads_)
+You can also use the image directly if you don't want the automatic process.
+You only need to specify the folder with your otrkey files (here: _~/Downloads_)
 	
 	docker run -ti -v ~/Downloads:/otr develcab/otr bash
 	
-Man kann _otrdecoder_, _multicut.sh_, _avidemux_ und _ffmpeg_ auf der Kommandozeile nutzen.
-Nano, curl und wget sind auch installiert.
+You can use _otrdecoder_, _multicut.sh_, _avidemux_ und _ffmpeg_.
+There are also curl and wget.
 	
-Ganz wichtig: Änderungen die man in einem laufenden Container vornimmt (also Software installieren, Einstellungen
-im System vornehmen usw.) werden nicht dauerhaft gespeichert.
-Wenn man den Container stoppt und wieder startet sind Änderungen weg.
+__Important__: If you change a setting in the image, or install new software; these changes won't be saved.
+After a restart of the image you start with a clean system.
+If you want to change something you should build your own image, using this a base one or forking it.
 	
-	
-## Docker?
+### Docker?
 
-http://www.heise.de/developer/artikel/Anwendungen-mit-Docker-transportabel-machen-2127220.html
+https://en.wikipedia.org/wiki/Docker_(software)
 	
-* Läuft auf Mac, Linux, Windows
-* Läuft auf Ubuntu 16, obwohl nur 14 drin ist
-* Läuft auf (stärkeren) NAS Laufwerken (Synology, Qnap, ...)
-
-Die Lauffähigkeit auf einem, noch zu kaufenden, NAS ist hier für mich Ausschlag gebend.
-	
-Außerdem habe ich bei der Entwicklung des Images wegen avidemux mehrere Ubuntu Versionen ausprobiert 
-bevor ich die richtige Version hatte.
-Hätte ich viermal ein neues System in einer VM installiert wäre es wesentlich aufwendiger als 
-die erste Zeile des _Dockerfile_ von _FROM ubuntu:16.04_ zu _FROM ubuntu:14.04_ usw. zu ändern.
-	
-Eigentlich ist das ein Paradebeispiel Pro Container.
+_+ Runs on (bigger) NAS drives (Synology, Qnap, ...)
 
 
-# HowTo build the project
+### Customize
 
-* Required: Docker >1.11
-* Goto folder _src/main/docker_
-* _docker build -t develcab/otr ._
-
-
-## Customize
-
-Ich denke die meisten wollen den Batch Modus, aber brauchen vielleicht die Umwandlung des Videos für iPad und Playstation nicht,
-oder wollen andere Video Einstellungen usw.
+Fork it: https://github.com/crushcoder/otr-docker
+Or just download and make your own image locally: https://github.com/crushcoder/otr-docker/archive/master.zip
 	
-Dazu gibt es 
+* .multicut_light.rc - Preferences for the cutting script. E.g., if you want to be asked for the name of
+	the cutted movie, you can override my settings for avidemux and you get the original behavior with adding the line
 	
-* .multicut_light.rc - hier sind die Einstellungen für Multicut hinterlegt.
-  * Wenn man zB lieber gefragt werden will wie das File nach dem Schneiden heißen soll, kann man hier die Zeile: 
-  _avidemuxOptions="--force-smart" ergänzen und überschreibt damit meine Änderungen und erhält den Multicut Original
-  Zustand
+	  avidemuxOptions="--force-smart"
+	  
 * auto.sh
-  * Dieses Skript wird im Automatischen Modus ausgeführt
-  * Hier findet sich in der obersten convert function die Einstellungen für ffmpeg
-  * Unten kann man die einzelnen Blöcke des Ablaufs erkennen
-  * Man kann zB die Zeilen unter _# cleanup_ ändern wenn man einige Zwischenschritte behalten möchte
+  * That's the script used in automatic mode
+  * The first function contains the settings for ffmpeg
+  * In the bottom you can find the blocks of execution
+  * For example you can delete some lines after _# cleanup_ to keep intermediate files
 * Dockerfile
-  * Mit dem Dockerfile wird das Image gebaut, hier steht also welche Version wovon genutzt wird
-  * Wenn man zB lieber ein anderes Schnitt-Script nutzen will könnte man hier den Download ergänzen
-	
+  * The Dockerfile contains the installation of the whole otr system
+  * Here you could change the cutting script or install further tools
+  
+  
+### HowTo build the project
+
+* Required: Docker >1.11 https://www.docker.com/products/docker
+
+	docker build -t develcab/otr .
