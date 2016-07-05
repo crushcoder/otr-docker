@@ -1,7 +1,7 @@
 # Online TV Recorder / otrkey Dekode, Schnitt, Umwandeln in h264 für Playstation, iPhone, iPad, MacOS, Android
 
-	Docker Image mit allen Komponenten um otrkey Dateien von http://onlinetvrecorder.com zu bearbeiten.
-	Ziel ist eine möglichst automatische Bearbeitung.
+Docker Image mit allen Komponenten um otrkey Dateien von http://onlinetvrecorder.com zu bearbeiten.
+Ziel ist eine möglichst automatische Bearbeitung.
 
 Komponenten:
 	
