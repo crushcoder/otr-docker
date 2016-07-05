@@ -30,7 +30,8 @@ COPY .multicut_light.rc /root/.multicut_light.rc
 
 # batch script
 COPY auto.sh auto.sh
-RUN chmod +x auto.sh
+COPY ff.sh ff.sh
+RUN chmod +x auto.sh ff.sh
 
 RUN mkdir /otr
 WORKDIR /otr
