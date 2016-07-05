@@ -1,11 +1,10 @@
 # OTR - Online-TV-Recorder Tools
 ## Decode, Cut, Convert otrkey files to h264 für Playstation, iPhone, iPad, MacOS, Android
 
+[English Version](README.md)
+
 Docker Image mit allen Komponenten um otrkey Dateien von http://onlinetvrecorder.com zu bearbeiten.
   Ziel ist eine möglichst automatische Bearbeitung.
-
-Image containing everything to work with otrkey files from http://onlinetvrecorder.com.
-  My target is a automatic workflow.
 
 Components:
 	
@@ -27,6 +26,7 @@ Components:
   * __password__: Das Passwort zum Einloggen bei onlinetvrecorder.com
   * __cutlistAtUrl__: Die "Persönliche Server-URL" von http://cutlist.at (Nach Registrierung oben rechts im Menü)
   * Das Verzeichnis in dem sich die .otrkey Dateien befinden (hier: _~/Downloads_)
+    * Das Script bearbeitet alle otrkey Dateien in diesem Verzeichnis, und legt auch hier temporäre Dateien ab
 
 
 #### Manuell
