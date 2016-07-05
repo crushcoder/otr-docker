@@ -1,0 +1,11 @@
+# Konfiguration
+moveOtrkey=1						# Otrkey nach dem dekodieren verschieben
+SortOrder=3						# 0: rating 1: ratingbyauthor 2: ratingcount  3: Algorithmus
+useSuggestedMovieName=0					# Vorgeschlagene Dateinamen benutzen
+useCommentsforMovieName=0				# Kommentare mit in Vorschlaege einbeziehen
+replaceWhitespace=1					# Im vorg. Dateinamen Leerzeichen durch Unterstriche ersetzen
+Auto=1							# Automatik modus 
+Smart=1							# Zuerst Cutlists auswaehlen, danach schneiden
+removeEDL=1						# EDL-Datei nach dem Anzeigen löschen
+searchby="name"						# suchen anhand von "name", oder "size" 
+rateCutlist=0						# Bewertung nach dem Schneiden abgeben
