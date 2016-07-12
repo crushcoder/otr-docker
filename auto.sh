@@ -1,21 +1,12 @@
 #!/usr/bin/env bash
 
+source functions.sh
 #ffmpeg -bsf:v h264_mp4toannexb -sn  -vcodec libx264 "$i.ts"
-function convert {
-	ffmpeg -i $1 -c:v libx264 -crf 20 -preset fast -map 0:0 -map 0:1 -c:a libfdk_aac -movflags +faststart $2
-}
 
-function mc {
-	multicut.sh -auto -smart -remote $1
-}
-
-function decode {
-	otrdecoder -e ${otrEmail} -p ${otrPassword} -i $1
-}
 
 # store cutlist.at url to file
 filename=/root/.cutlist.at
-if [ -a "$filename" ] then
+if [ -a "$filename" ]; then
 	rm "$filename"
 fi
 touch "$filename"
