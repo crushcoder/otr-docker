@@ -2,12 +2,18 @@
 
 source functions.sh
 
-for file in *.m4v
-do
-	convert "${file}" "${file}.small.m4v"
-done
+count=`ls -1 *.m4v 2>/dev/null | wc -l`
+if [ $count != 0 ]; then
+	for file in *.m4v
+	do
+		convert "${file}" "${file}.small.m4v"
+	done
+fi
 
-for file in *.avi
-do
-	convert "${file}" "${file}.m4v"
-done
+count=`ls -1 *.avi 2>/dev/null | wc -l`
+if [ $count != 0 ]; then
+	for file in *.avi
+	do
+		convert "${file}" "${file}.m4v"
+	done
+fi
