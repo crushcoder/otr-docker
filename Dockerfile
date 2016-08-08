@@ -29,8 +29,8 @@ RUN chmod +x multicut.sh
 COPY .multicut_light.rc /root/.multicut_light.rc
 
 # batch script
-COPY functions.sh auto.sh ff.sh ffall.sh /${otrdecoderFileName}/
-RUN chmod +x functions.sh auto.sh ff.sh ffall.sh
+COPY functions.sh auto.sh ff.sh ffall.sh mcall.sh /${otrdecoderFileName}/
+RUN chmod +x functions.sh auto.sh ff.sh ffall.sh mcall.sh
 
 RUN mkdir /otr
 WORKDIR /otr
