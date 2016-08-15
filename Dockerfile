@@ -30,6 +30,7 @@ COPY multicut_light.rc /root/.multicut_light.rc
 
 # batch script
 COPY functions.sh auto.sh ff.sh ffall.sh mcall.sh /${otrdecoderFileName}/
+COPY README_de.md README.md /
 RUN chmod +x functions.sh auto.sh ff.sh ffall.sh mcall.sh
 
 RUN mkdir /otr
