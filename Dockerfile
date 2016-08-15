@@ -26,7 +26,7 @@ RUN echo 'alias sudo=""' >> ~/.bashrc
 RUN mkdir /home/root
 RUN curl -o multicut.sh https://raw.githubusercontent.com/crushcoder/multicut_light/master/multicut_light_20100518.sh
 RUN chmod +x multicut.sh
-COPY .multicut_light.rc /root/.multicut_light.rc
+COPY multicut_light.rc /root/.multicut_light.rc
 
 # batch script
 COPY functions.sh auto.sh ff.sh ffall.sh mcall.sh /${otrdecoderFileName}/

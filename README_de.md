@@ -42,6 +42,11 @@ Nano, curl und wget sind auch installiert.
 Ganz wichtig: Änderungen die man in einem laufenden Container vornimmt (also Software installieren, Einstellungen
 im System vornehmen usw.) werden nicht dauerhaft gespeichert.
 Wenn man den Container stoppt und wieder startet sind Änderungen weg.
+
+Weitere Scripte:
+
+* ffall.sh - Kodiert alle Dateien im momentanen Ordner nach h264 m4v.
+* mcall.sh - Schneidet alle avi Dateien im momentanen Ordner mit multicut
 	
 	
 ### Docker?

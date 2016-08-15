@@ -39,6 +39,11 @@ You only need to specify the folder with your otrkey files (here: _~/Downloads_)
 	
 You can use _otrdecoder_, _multicut.sh_, _avidemux_ und _ffmpeg_.
 There are also curl and wget.
+
+I wrote some more scripts:
+
+* ffall.sh - encodes all files in the current folder to h264 .m4v. Encoded files are stored in _converted_, while the source file will be moved to _original_
+* mcall.sh - cuts all .avi files in current folder with multicut
 	
 __Important__: If you change a setting in the image, or install new software; these changes won't be saved.
 After a restart of the image you start with a clean system.
