@@ -3,15 +3,26 @@ FROM ubuntu:14.04
 MAINTAINER Juergen Bruester github@devilscab.de
 
 # add repos for avidemux
-RUN echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
-RUN echo "deb http://www.deb-multimedia.org wheezy-backports main" >> /etc/apt/sources.list
+RUN apt-get update \
+		&& apt-get -y install wget
+RUN wget -q -O- http://archive.getdeb.net/getdeb-archive.key | apt-key add -
+RUN echo "deb http://archive.getdeb.net/ubuntu/ trusty-getdeb apps" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted" >> /etc/apt/sources.list
 
 RUN apt-get update \
-		&& apt-get -y --force-yes install deb-multimedia-keyring \
-		&& apt-get update \
-		&& apt-get -y install curl wget dialog nano bzip2 libav-tools avidemux-cli \
+		&& apt-get -y install curl dialog nano bzip2 bc libav-tools avidemux-cli \
 		&& apt-get clean \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+		
+RUN echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
+RUN echo "deb http://www.deb-multimedia.org wheezy-backports main" >> /etc/apt/sources.list
+RUN apt-get update \
+		&& apt-get install -y --force-yes deb-multimedia-keyring \
+		&& apt-get update \
+		&& apt-get -y install ffmpeg \
+		&& apt-get clean \
+		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 ENV otrdecoderFileName otrdecoder-bin-x86_64-unknown-linux-gnu-0.4.1132
 RUN curl -o otrdecoder.tar.bz2 http://www.onlinetvrecorder.com/downloads/${otrdecoderFileName}.tar.bz2
