@@ -18,7 +18,7 @@ Components:
 
 #### Batch - Decode, Cut, Convert to h264, Cleanup
 
-	docker run -e "email=bla@fasel.de" -e "password=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr
+	docker run -e "dockerEmail=bla@fasel.de" -e "dockerPassword=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr
 
 * Man benötigt Docker: https://www.docker.com/products/docker-toolbox#/resources (Dies ist die zZ des Schreibens stabile 1.11 Version, Bleeding Edge ist 1.12)
 * Man muss dem Programm einige Angaben mitgeben
