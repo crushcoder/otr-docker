@@ -18,9 +18,9 @@ Components:
 
 #### Batch - Decode, Cut, Convert to h264, Cleanup
 
-	docker run -e "dockerEmail=bla@fasel.de" -e "dockerPassword=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr
+	docker run -e "otrEmail=bla@fasel.de" -e "otrPassword=geheim" -e "cutlistAtUrl=http://cutlist.at/user/h52hm126h" -v ~/Downloads:/otr develcab/otr
 
-* Man benötigt Docker: https://www.docker.com/products/docker-toolbox#/resources (Dies ist die zZ des Schreibens stabile 1.11 Version, Bleeding Edge ist 1.12)
+* Man benötigt Docker: https://www.docker.com/products/docker-toolbox#/resources
 * Man muss dem Programm einige Angaben mitgeben
   * __email__: Die E-Mail Adresse die man bei onlinetvrecorder.com zum Einloggen nutzt
   * __password__: Das Passwort zum Einloggen bei onlinetvrecorder.com
