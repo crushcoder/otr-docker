@@ -1,25 +1,14 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 
 MAINTAINER Juergen Bruester github@devilscab.de
 
-# add repos for avidemux
-RUN apt-get update \
-		&& apt-get -y install wget
-RUN wget -q -O- http://archive.getdeb.net/getdeb-archive.key | apt-key add -
-RUN echo "deb http://archive.getdeb.net/ubuntu/ trusty-getdeb apps" >> /etc/apt/sources.list
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted" >> /etc/apt/sources.list
-
-RUN apt-get update \
-		&& apt-get -y install curl dialog nano bzip2 bc libav-tools avidemux-cli \
-		&& apt-get clean \
-		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-		
+# add repos for avidemux		
 RUN echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
 RUN echo "deb http://www.deb-multimedia.org wheezy-backports main" >> /etc/apt/sources.list
 RUN apt-get update \
 		&& apt-get install -y --force-yes deb-multimedia-keyring \
 		&& apt-get update \
-		&& apt-get -y install ffmpeg \
+		&& apt-get -y install curl wget dialog nano bzip2 bc avidemux-cli ffmpeg \
 		&& apt-get clean \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -38,6 +27,9 @@ RUN mkdir /home/root
 RUN curl -o multicut.sh https://raw.githubusercontent.com/crushcoder/multicut_light/master/multicut_light_20100518.sh
 RUN chmod +x multicut.sh
 COPY multicut_light.rc /root/.multicut_light.rc
+
+RUN curl -o otrcut.sh https://raw.githubusercontent.com/m23project/otrcut.sh/master/otrcut.sh
+RUN chmod +x otrcut.sh
 
 # batch script
 COPY functions.sh auto.sh ff.sh ffall.sh mcall.sh /${otrdecoderFileName}/

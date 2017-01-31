@@ -32,6 +32,6 @@ do
 done
 
 # cleanup
-rm -f *.otrkey
+#rm -f *.otrkey
 mv cut/*.m4v ./
-rm -rf cut uncut decoded
+#rm -rf cut uncut decoded
