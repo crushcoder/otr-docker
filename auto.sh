@@ -31,7 +31,13 @@ do
 	convert "${cutFile}" "${cutFile}.m4v"
 done
 
-# cleanup
-rm -f *.otrkey
-mv cut/*.m4v ./
-rm -rf cut uncut decoded
+# cleanup (only if success)
+count=`ls -1 cut/*.m4v 2>/dev/null | wc -l`
+if [ $count != 0 ] && [ `wc -c cut/*.m4v | tail -n 1 | cut -c8-9` != "0" ]; then
+	echo "cleanup"
+	rm -f *.otrkey
+	mv cut/*.m4v ./
+	rm -rf cut uncut decoded
+else
+	echo "no .m4v files, something went wrong"
+fi
