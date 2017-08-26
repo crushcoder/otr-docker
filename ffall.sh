@@ -36,3 +36,4 @@ fi
 convertAll "avi"
 convertAll "mp4"
 convertAll "mov"
+convertAll "mkv"

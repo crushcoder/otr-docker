@@ -13,7 +13,7 @@ RUN apt-get update \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-ENV otrdecoderFileName otrdecoder-bin-x86_64-unknown-linux-gnu-0.4.1132
+ENV otrdecoderFileName otrdecoder-bin-x86_64-unknown-linux-gnu-0.4.1133
 RUN curl -o otrdecoder.tar.bz2 http://www.onlinetvrecorder.com/downloads/${otrdecoderFileName}.tar.bz2
 RUN tar -xf otrdecoder.tar.bz2
 
