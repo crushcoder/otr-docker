@@ -27,6 +27,7 @@ Components:
   * __cutlistAtUrl__: Die "Persönliche Server-URL" von http://cutlist.at (Nach Registrierung oben rechts im Menü)
   * Das Verzeichnis in dem sich die .otrkey Dateien befinden (hier: _~/Downloads_)
     * Das Script bearbeitet alle otrkey Dateien in diesem Verzeichnis, und legt auch hier temporäre Dateien ab
+  * (optional) __convert=false__: Es wird nur dekodiert und geschnitten, aber nicht nach m4v konvertiert
 
 
 #### Manuell

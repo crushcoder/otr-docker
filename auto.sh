@@ -26,18 +26,25 @@ do
 done
 
 # convert
-for cutFile in /otr/cut/*.avi
-do
-	convert "${cutFile}" "${cutFile}.m4v"
-done
+if [ ${convert} != "false" ]; then
+	resultFileType=".m4v"
+	for cutFile in /otr/cut/*.avi
+	do
+		convert "${cutFile}" "${cutFile}.m4v"
+	done
+else
+	resultFileType=".avi"
+fi
 
 # cleanup (only if success)
-count=`ls -1 cut/*.m4v 2>/dev/null | wc -l`
-if [ $count != 0 ] && [ `wc -c cut/*.m4v | tail -n 1 | cut -c8-9` != "0" ]; then
+countOtr=`ls -1 *.otrkey 2>/dev/null | wc -l`
+countResult=`ls -1 cut/*${resultFileType} 2>/dev/null | wc -l`
+if [ $countOtr == $countResult ] && [ `wc -c cut/*${resultFileType} | tail -n 1 | cut -c8-9` != "0" ]; then
 	echo "cleanup"
 	rm -f *.otrkey
-	mv cut/*.m4v ./
+	mv cut/*${resultFileType} ./
 	rm -rf cut uncut decoded
+	touch cut/cleanup
 else
-	echo "no .m4v files, something went wrong"
+	echo "something went wrong, keeping intermediate files"
 fi
