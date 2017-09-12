@@ -44,7 +44,6 @@ if [ $countOtr == $countResult ] && [ `wc -c cut/*${resultFileType} | tail -n 1 
 	rm -f *.otrkey
 	mv cut/*${resultFileType} ./
 	rm -rf cut uncut decoded
-	touch cut/cleanup
 else
 	echo "something went wrong, keeping intermediate files"
 fi
