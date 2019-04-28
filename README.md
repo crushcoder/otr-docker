@@ -12,7 +12,7 @@ Components:
 * multicut_light (customized)
 * ffmpeg
 * avidemux 2.5.6
-* Ubuntu 14.04
+* Debian Wheezy Archived
 
 ### Usage
 
@@ -49,12 +49,6 @@ __Important__: If you change a setting in the image, or install new software; th
 After a restart of the image you start with a clean system.
 If you want to change something you should build your own image, using this a base one or forking it.
 	
-### Docker?
-
-https://en.wikipedia.org/wiki/Docker_(software)
-	
-+ Runs on (bigger) NAS drives (Synology, Qnap, ...)
-
 
 ### Customize
 
@@ -78,6 +72,6 @@ Or just download and make your own image locally: https://github.com/crushcoder/
   
 ### HowTo build the project
 
-* Required: Docker >1.11 https://www.docker.com/products/docker
+* Required: Docker Engine or Desktop https://www.docker.com/products/docker-engine
 
 	docker build -t develcab/otr .

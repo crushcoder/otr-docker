@@ -12,7 +12,7 @@ Components:
 * multicut_light (customized)
 * ffmpeg
 * avidemux 2.5.6
-* Ubuntu 14.04
+* Debian Wheezy Archived
 
 ### Usage
 
@@ -49,25 +49,10 @@ Weitere Scripte:
 * ffall.sh - Kodiert alle Dateien im momentanen Ordner nach h264 m4v.
 * mcall.sh - Schneidet alle avi Dateien im momentanen Ordner mit multicut
 	
-	
-### Docker?
-
-http://www.heise.de/developer/artikel/Anwendungen-mit-Docker-transportabel-machen-2127220.html
-	
-* Läuft auf Mac, Linux, Windows
-* Läuft auf (stärkeren) NAS Laufwerken (Synology, Qnap, ...)
-
-Die Lauffähigkeit auf einem, noch zu kaufenden, NAS ist hier für mich Ausschlag gebend.
-	
-Außerdem habe ich bei der Entwicklung des Images wegen avidemux mehrere Ubuntu Versionen ausprobiert 
-bevor ich die richtige Version hatte.
-Hätte ich viermal ein neues System in einer VM installiert wäre es wesentlich aufwendiger als 
-die erste Zeile des _Dockerfile_ von _FROM ubuntu:16.04_ zu _FROM ubuntu:14.04_ usw. zu ändern.
-
 
 ### HowTo build the project
 
-* Required: Docker >1.11
+* Required: Docker Engine / Desktop https://www.docker.com/products/docker-engine
 
 	docker build -t develcab/otr .
 
