@@ -1,10 +1,10 @@
-FROM debian:wheezy
+FROM debian/eol:wheezy
 
 MAINTAINER Juergen Bruester github@devilscab.de
 
 # add repos for avidemux		
-RUN echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
-RUN echo "deb http://www.deb-multimedia.org wheezy-backports main" >> /etc/apt/sources.list
+RUN echo "deb http://archive.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
+RUN echo "deb http://archive.deb-multimedia.org wheezy-backports main" >> /etc/apt/sources.list
 RUN apt-get update \
 		&& apt-get install -y --force-yes deb-multimedia-keyring \
 		&& apt-get update \
@@ -14,7 +14,7 @@ RUN apt-get update \
 
 
 ENV otrdecoderFileName otrdecoder-bin-x86_64-unknown-linux-gnu-0.4.1133
-RUN curl -o otrdecoder.tar.bz2 http://www.onlinetvrecorder.com/downloads/${otrdecoderFileName}.tar.bz2
+RUN curl -o otrdecoder.tar.bz2 https://www.onlinetvrecorder.com/downloads/otrdecoder-bin-x86_64-unknown-linux-gnu-0.4.1133.tar.bz2
 RUN tar -xf otrdecoder.tar.bz2
 
 WORKDIR ${otrdecoderFileName}
