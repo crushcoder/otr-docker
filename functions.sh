@@ -5,7 +5,11 @@ function convert {
 }
 
 function mc {
-	multicut.sh -remote $1
+    if [ ${renameFile} == "true" ]; then
+        multicut.sh -name -remote $1
+    else
+	    multicut.sh -remote $1
+	fi
 }
 
 function decode {
