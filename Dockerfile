@@ -24,7 +24,7 @@ ENV PATH $PATH:/"${otrdecoderFileName}"
 # install multicut
 RUN echo 'alias sudo=""' >> ~/.bashrc
 RUN mkdir /home/root
-RUN curl -o multicut.sh https://raw.githubusercontent.com/crushcoder/multicut_light/master/multicut_light_20100518.sh
+RUN curl -o multicut.sh https://raw.githubusercontent.com/crushcoder/multicut_light-1/master/multicut_light.sh
 RUN chmod +x multicut.sh
 COPY multicut_light.rc /root/.multicut_light.rc
 

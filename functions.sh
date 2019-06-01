@@ -5,7 +5,7 @@ function convert {
 }
 
 function mc {
-	multicut.sh -auto -smart -remote $1
+	multicut.sh -remote $1
 }
 
 function decode {
