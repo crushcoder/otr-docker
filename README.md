@@ -28,6 +28,7 @@ Components:
     * All otrkey files in this folder will be processed by the auto.sh script
     * Also temporary files will be created, and deleted, in this folder
   * (optional) __convert=false__: Only decode and cut, but don't convert to m4v
+  * (optional) __renameFile=true__: Rename the file to used cutlist filename
 
 
 #### Manuell
