@@ -27,8 +27,11 @@ Components:
   * The folder where your otrkey files are (here: _~/Downloads_)
     * All otrkey files in this folder will be processed by the auto.sh script
     * Also temporary files will be created, and deleted, in this folder
-  * (optional) __convert=false__: Only decode and cut, but don't convert to m4v
   * (optional) __renameFile=true__: Rename the file to used cutlist filename
+  * (optional) __skipConvert=true__: Only decode and cut, but don't convert to m4v
+  * (optional) __skipDecode=true__: No decode, only subsequent steps are executed
+  * (optional) __skipCut=true__: Don't cut movie
+  * (optional) __skipCleanup=true__: Don't delete intermediate files
 
 
 #### Manuell
