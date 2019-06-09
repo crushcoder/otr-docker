@@ -5,7 +5,7 @@ function convert {
 }
 
 function mc {
-    if [ ${renameFile} == "true" ]; then
+    if [ "${renameFile}" == "true" ]; then
         multicut.sh -name -remote $1
     else
 	    multicut.sh -remote $1
