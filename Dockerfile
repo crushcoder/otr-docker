@@ -8,7 +8,7 @@ RUN echo "deb http://archive.deb-multimedia.org wheezy-backports main" >> /etc/a
 RUN apt-get update \
 		&& apt-get install -y --force-yes deb-multimedia-keyring \
 		&& apt-get update \
-		&& apt-get -y install curl wget dialog nano bzip2 bc avidemux-cli ffmpeg \
+		&& apt-get -y install curl wget dialog nano bzip2 bc avidemux-cli ffmpeg procps \
 		&& apt-get clean \
 		&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
